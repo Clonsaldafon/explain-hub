@@ -13,6 +13,24 @@
             "email": "a.bezmelnitsin.a@yandex.ru"
         }
     ],
+    "repositories": [
+        {
+            "type": "path",
+            "url": "packages/*",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
     "minimum-stability": "stable",
-    "require": {}
+    "require": {
+        "php": "8.3.*",
+        "explain-hub/framework": "@dev",
+        "explain-hub/users": "@dev",
+        "explain-hub/questions": "@dev",
+        "explain-hub/admin": "@dev",
+        "illuminate/view": "^13.2",
+        "illuminate/filesystem": "^13.2",
+        "symfony/http-foundation": "^7.4"
+    }
 }

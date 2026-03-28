@@ -1,0 +1,20 @@
+{
+    "name": "explain-hub/admin",
+    "description": "Admin panel for user and content management",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Admin\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Anton Bezmelnitsin",
+            "email": "a.bezmelnitsin.a@yandex.ru"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "8.3.*"
+    }
+}
