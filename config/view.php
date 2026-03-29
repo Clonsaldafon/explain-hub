@@ -1,8 +1,8 @@
 <?php
 
 return [
-  "paths" => [
-    dirname(__DIR__) . "/resources/views"
+  'paths' => [
+    resource_path('views')
   ],
-  "compiled" => dirname(__DIR__) . "/storage/framework/views"
+  'compiled' => storage_path('framework/views')
 ];

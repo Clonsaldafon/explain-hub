@@ -7,14 +7,9 @@
             "Admin\\": "src/"
         }
     },
-    "authors": [
-        {
-            "name": "Anton Bezmelnitsin",
-            "email": "a.bezmelnitsin.a@yandex.ru"
-        }
-    ],
     "minimum-stability": "stable",
     "require": {
-        "php": "8.3.*"
+        "php": "^8.1",
+        "illuminate/support": "^10.0"
     }
 }
