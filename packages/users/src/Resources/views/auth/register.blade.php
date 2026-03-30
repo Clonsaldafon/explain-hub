@@ -1,14 +1,22 @@
 @extends("layouts.app")
 
+@php($old = session('old') ?: [])
+
 @section("content")
   <div class="auth">
-    <form class="auth__form">
+    <form
+      class="auth__form"
+      method="POST"
+      action="/register"
+    >
       <h1 class="auth__title">Регистрация</h1>
       <div class="auth__field">
-        <label class="auth__label" for="fullname-input">ФИО</label>
+        <label class="auth__label" for="name-input">Имя</label>
         <input
           class="auth__input"
-          id="fullname-input"
+          id="name-input"
+          name="name"
+          value="{{ $old['name'] ?? '' }}"
           required
         >
       </div>
@@ -17,7 +25,9 @@
         <input
           class="auth__input"
           id="email-input"
+          name="email"
           type="email"
+          value="{{ $old['email'] ?? '' }}"
           required
         >
       </div>
@@ -26,10 +36,33 @@
         <input
           class="auth__input"
           id="password-input"
+          name="password"
           type="password"
+          minlength="8"
           required
         >
       </div>
+      <div class="auth__field">
+        <label class="auth__label" for="password-confirmation-input">Подтвердите пароль</label>
+        <input
+          class="auth__input"
+          id="password-confirmation-input"
+          name="password_confirmation"
+          type="password"
+          minlength="8"
+          required
+        >
+      </div>
+      @php($errors = session('errors'))
+      @if($errors && is_array($errors))
+          <div class="auth__error">
+              @foreach($errors as $field => $messages)
+                  @foreach($messages as $message)
+                      <p>{{ $message }}</p>
+                  @endforeach
+              @endforeach
+          </div>
+      @endif
       <button
         class="auth__button button"
         type="submit"

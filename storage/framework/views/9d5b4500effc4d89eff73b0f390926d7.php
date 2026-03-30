@@ -1,8 +1,6 @@
-@extends("layouts.app")
+<?php ($old = session('old') ?: []); ?>
 
-@php($old = session('old') ?: [])
-
-@section("content")
+<?php $__env->startSection("content"); ?>
   <div class="auth">
     <form
       class="auth__form"
@@ -17,7 +15,7 @@
           id="email-input"
           name="email"
           type="email"
-          value="{{ $old['email'] ?? '' }}"
+          value="<?php echo e($old['email'] ?? ''); ?>"
           required
         >
       </div>
@@ -32,10 +30,10 @@
           required
         >
       </div>
-      @php($error = session('error'))
-      @if($error)
-          <div class="auth__error">{{ $error }}</div>
-      @endif
+      <?php ($error = session('error')); ?>
+      <?php if($error): ?>
+          <div class="auth__error"><?php echo e($error); ?></div>
+      <?php endif; ?>
       <button
         class="auth__button button"
         type="submit"
@@ -53,4 +51,5 @@
       </div>
     </form>
   </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("layouts.app", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/anton-bezmelnitsin/Рабочий стол/explain-hub/packages/users/src/Providers/../Resources/views/auth/login.blade.php ENDPATH**/ ?>

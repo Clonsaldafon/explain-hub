@@ -1,0 +1,15 @@
+{
+    "name": "explain-hub/questions",
+    "description": "Questions management module",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Questions\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^10.0"
+    }
+}

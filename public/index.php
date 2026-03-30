@@ -25,4 +25,9 @@ $app = require __DIR__.'/../bootstrap/app.php';
 |
 */
 
+session_save_path(__DIR__ . '/../storage/framework/sessions');
+ini_set('session.gc_probability', 1);
+session_start();
+register_shutdown_function('session_write_close');
+
 $app->run();
