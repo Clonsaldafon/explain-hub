@@ -23,9 +23,8 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
-// $app->withFacades();
-
-// $app->withEloquent();
+$app->withFacades();
+$app->withEloquent();
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +59,7 @@ $app->singleton(
 */
 
 $app->configure('app');
+$app->configure('database');
 $app->configure('view');
 
 /*
@@ -73,13 +73,9 @@ $app->configure('view');
 |
 */
 
-// $app->middleware([
-//     App\Http\Middleware\ExampleMiddleware::class
-// ]);
-
-// $app->routeMiddleware([
-//     'auth' => App\Http\Middleware\Authenticate::class,
-// ]);
+$app->routeMiddleware([
+    'auth' => Users\Middleware\AuthMiddleware::class
+]);
 
 /*
 |--------------------------------------------------------------------------
@@ -93,6 +89,7 @@ $app->configure('view');
 */
 
 $app->register(Users\Providers\UsersServiceProvider::class);
+$app->register(Questions\Providers\QuestionsServiceProvider::class);
 
 $app->singleton('view', function ($app) {
     $config = $app->make('config')->get('view');

@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace Questions\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
+use Users\Models\User;
 
 class Answer extends Model
 {
