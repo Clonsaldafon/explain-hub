@@ -3,3 +3,4 @@
 /.vscode/
 /vendor/
 /.bash_history
+.env
