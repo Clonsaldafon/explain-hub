@@ -10,6 +10,8 @@ use Users\Models\User;
 class QuestionController extends Controller
 {
 
+    private $currentUser = null;
+
     private function getCurrentUser()
     {
         if ($this->currentUser === null) {
@@ -17,6 +19,33 @@ class QuestionController extends Controller
             $this->currentUser = $userId ? User::find($userId) : null;
         }
         return $this->currentUser;
+    }
+
+    private function canEdit($id): bool {
+        $user = $this->getCurrentUser();
+
+        if (!$user) {
+            return false;
+        }
+
+        $question = Question::findOrFail($id);
+
+        return ($question->author_id === $user->id) || $user->isEditor();
+    }
+
+    private function canDelete($id): bool {
+        $user = $this->getCurrentUser();
+        if (!$user) {
+            return false;
+        }
+
+        $question = Question::findOrFail($id);
+        return ($question->author_id == $user->id) || $user->isModerator();
+    }
+
+    private function canChangeStatus($id): bool {
+        $user = $this->getCurrentUser();
+        return $user && $user->isModerator();
     }
 
     private function checkManageGrants($id) {
@@ -61,7 +90,8 @@ class QuestionController extends Controller
 
 
         if (!session()->has('user_id')) {
-            flash('error', 'Войдите в систему.');
+            flash('error', 'Log in to ask a question');
+            return redirect('/login');
         }
 
         $errors = [];
@@ -80,7 +110,7 @@ class QuestionController extends Controller
         }
 
         if (!is_null($tags) && !is_array($tags)) {
-            $errors['tags'][] = 'Your question should contain at least 1 tag and should be an array';
+            $errors['tags'][] = 'Your question should contain at least 1 tag';
         }
 
         if (!empty($errors)) {
@@ -94,11 +124,14 @@ class QuestionController extends Controller
                 'title' => $title,
                 'content' => $content,
                 'tags' => $tags ?? [],
-                'status' => 'on_moderation',
+                'status' => 'on_moderate',
                 'author_id' => session('user_id'),
                 'views' => 0,
                 "likes" => 0,
             ]);
+
+            flash('success', 'Question created');
+            return redirect('/my-questions');
         } catch (Exception $ex) {
             flash('error', "Error while creating a question: {$ex->getMessage()}");
             flash('old', $request->all());
@@ -107,7 +140,7 @@ class QuestionController extends Controller
     }
 
     public function show($id) {
-        $question = Question::with('author_id', 'answers.author')->findOrFail($id);
+        $question = Question::with('author', 'answers.author')->findOrFail($id);
         $question->increment('views');
         if ($question->status !== 'published') {
             $user = $this->getCurrentUser();
@@ -123,37 +156,22 @@ class QuestionController extends Controller
     }
 
     public function edit($id) {
-        $user = $this->getCurrentUser();
-
-        if (!$user) {
-            flash('error', 'Log in to edit your questions');
-            return redirect('/login');
-        }
-
-        $question = Question::findOrFail($id);
-
-        if (!$user->isEditor() && $question->author_id != $user->id) {
-            flash('error', 'You are not allowed to edit this question');
+        if (!$this->canEdit($id)) {
+            flash('error', 'You do not have permission to edit this question');
             return redirect('/questions/' . $id);
         }
 
+        $question = Question::findOrFail($id);
         return view('questions::edit', compact('question'));
     }
 
     public function update(Request $request, $id) {
-        $user = $this->getCurrentUser();
-
-        if (!$user) {
-            flash('error', 'Log in to edit your questions');
-            return redirect('/login');
+        if (!$this->canEdit($id)) {
+            flash('error', 'You do not have permission to edit this question');
+            return redirect('/questions/' . $id);
         }
 
         $question = Question::findOrFail($id);
-
-        if ($question->author_id != $user->id && !$user->isEditor()) {
-            flash('error', 'You are not allowed to edit this question');
-            return redirect('/questions/' . $id);
-        }
 
         $errors = [];
         $content = trim($request->input('content'));
@@ -190,28 +208,37 @@ class QuestionController extends Controller
     }
 
     public function destroy(Request $request, $id) {
-        $user = $this->getCurrentUser();
-
-        if (!$user) {
-            flash('error', 'Log in to edit your questions');
-            return redirect('/login');
+        if (!$this->canDelete($id)) {
+            flash('error', 'You do not have permission to delete this question');
+            return redirect('/questions/' . $id);
         }
 
         $question = Question::findOrFail($id);
-
-        if ($question->author_id != $user->id && !$user->isAdmin()) {
-            flash('error', 'You are not allowed to delete this question');
-            return redirect('/questions/' . $id);
-        }
 
         try {
             $question->delete();
             flash('success', 'Question deleted successfully');
             return redirect('/my-questions');
 
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             flash('error', "Error while deleting a question: {$e->getMessage()}");
             return redirect('/questions/' . $id);
         }
+    }
+
+    public function moderate(Request $request, $id) {
+        if (!$this->canChangeStatus($id)) {
+            abort(403, "Permission denied");
+        }
+
+        $question = Question::findOrFail($id);
+
+        $validated = $request->validate([
+            'status' => 'required|in:draft,on_moderate,published,rejected',
+        ]);
+
+        $question->update(['status' => $validated['status']]);
+        flash('success', 'Question moderated successfully');
+        return redirect('/questions/' . $id);
     }
 }

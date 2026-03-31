@@ -17,7 +17,7 @@ return new class extends Migration
             $table->json('answer');
             $table->foreignId('author_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('question_id')->constrained('questions')->onDelete('cascade');
-            $table->enum('status', ['draft', 'published', 'rejected'])->default('draft');
+            $table->enum('status', ['draft', 'on_moderate', 'published', 'rejected'])->default('draft');
             $table->integer('views')->default(0);
             $table->integer('likes')->default(0);
             $table->timestamps();
