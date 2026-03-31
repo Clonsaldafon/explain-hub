@@ -3,6 +3,10 @@
 namespace Questions\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
+
+use Questions\View\Components\Question;
+use Questions\View\Components\TagList;
 
 class QuestionsServiceProvider extends ServiceProvider
 {
@@ -18,6 +22,9 @@ class QuestionsServiceProvider extends ServiceProvider
                 __DIR__ . '/../Resources/assets/css' => base_path('public/css/questions')
             ], 'public');
         }
+
+        Blade::component('question', Question::class);
+        Blade::component('tag-list', TagList::class);
     }
 
     public function register()

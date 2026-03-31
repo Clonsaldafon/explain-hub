@@ -9,9 +9,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/users/auth.css">
-  <link rel="stylesheet" href="/css/questions/questions.css">
-  <link rel="stylesheet" href="/css/questions/tags.css">
+  <link rel="stylesheet" href="/css/packages/users/auth.css">
+  <link rel="stylesheet" href="/css/packages/questions/modal.css">
+  <link rel="stylesheet" href="/css/packages/questions/questions.css">
+  <link rel="stylesheet" href="/css/packages/questions/question.css">
+  <link rel="stylesheet" href="/css/packages/questions/tags.css">
+  <link rel="stylesheet" href="/css/packages/questions/helped.css">
 </head>
 <body>
   <?php echo $__env->yieldContent("content"); ?>

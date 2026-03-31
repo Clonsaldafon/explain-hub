@@ -27,170 +27,163 @@
       </a>
     </header>
     <div class="section__body">
+      <button
+        class="questions__add-button button"
+        type="button"
+      >
+        <span class="questions__add-button-text">Добавить вопрос</span>
+        <svg
+          class="questions__add-button-icon"
+          width="24" height="24" viewBox="0 0 24 24"
+        >
+          <path
+            fill="currentColor"
+            d="M11 13H6q-.425 0-.712-.288T5 12t.288-.712T6 11h5V6q0-.425.288-.712T12 5t.713.288T13 6v5h5q.425 0 .713.288T19 12t-.288.713T18 13h-5v5q0 .425-.288.713T12 19t-.712-.288T11 18z"
+          />
+        </svg>
+      </button>
       <ul class="questions__list">
         <li class="questions__item">
-          <details class="questions__accordion">
-            <summary class="questions__accordion-header">
-              <div class="questions__accordion-header-info">
-                <h3 class="questions__accordion-title h3">
-                  Как найти дифференциал?
-                </h3>
-                <div class="tags">
-                  <ul class="tags__list">
-                    <li class="tags__item">
-                      #вышмат
-                    </li>
-                    <li class="tags__item">
-                      #2_курс
-                    </li>
-                    <li class="tags__item">
-                      #диффуры
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <span class="questions__accordion-indicator"></span>
-            </summary>
-            <div class="questions__accordion-body">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                Esse eos explicabo quasi a libero nesciunt reprehenderit 
-                incidunt consequuntur, dolor maiores architecto provident 
-                vero obcaecati impedit, natus officia, excepturi qui quisquam.
-              </p>
-            </div>
-            <footer class="questions__footer">
-              <div class="helped">
-                <input
-                  class="helped__checkbox"
-                  id="helped-checkbox-1"
-                  name="helped"
-                  type="checkbox"
-                >
-                <label class="helped__label" for="helped-checkbox-1">
-                  <span class="helped__label-text">Помогло</span>
-                  <svg
-                    class="helped__label-icon"
-                    width="14" height="14" viewBox="0 0 14 14"
-                  >
-                    <path
-                      fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                      d="m3.37 5.85l2.54-4.06a1.09 1.09 0 0 1 .94-.52h0A1.11 1.11 0 0 1 8 2.37v2.91h4.39a1.15 1.15 0 0 1 1.1 1.32l-.8 5.16a1.14 1.14 0 0 1-1.13 1H5a2 2 0 0 1-.9-.21l-.72-.36m-.01-6.34v6.31M1 5.85h2.37v6.31h0H1a.5.5 0 0 1-.5-.5V6.35a.5.5 0 0 1 .5-.5Z"/>
-                  </svg>
-                </label>
-              </div>
-            </footer>
-          </details>
+          <x-questions::question
+            title="Как найти дифференциал?"
+            content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse eos explicabo quasi a libero nesciunt reprehenderit incidunt consequuntur, dolor maiores architecto provident vero obcaecati impedit, natus officia, excepturi qui quisquam."
+            status="published"
+            :tags="['вышмат', '2_курс', 'диффуры']"
+            :views="357"
+            :likes="24"
+            id="question-1"
+          />
         </li>
         <li class="questions__item">
-          <details class="questions__accordion">
-            <summary class="questions__accordion-header">
-              <div class="questions__accordion-header-info">
-                <h3 class="questions__accordion-title h3">
-                  Как найти дифференциал?
-                </h3>
-                <div class="tags">
-                  <ul class="tags__list">
-                    <li class="tags__item">
-                      #вышмат
-                    </li>
-                    <li class="tags__item">
-                      #2_курс
-                    </li>
-                    <li class="tags__item">
-                      #диффуры
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <span class="questions__accordion-indicator"></span>
-            </summary>
-            <div class="questions__accordion-body">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                Esse eos explicabo quasi a libero nesciunt reprehenderit 
-                incidunt consequuntur, dolor maiores architecto provident 
-                vero obcaecati impedit, natus officia, excepturi qui quisquam.
-              </p>
-            </div>
-            <footer class="questions__footer">
-              <div class="helped">
-                <input
-                  class="helped__checkbox"
-                  id="helped-checkbox-2"
-                  name="helped"
-                  type="checkbox"
-                >
-                <label class="helped__label" for="helped-checkbox-2">
-                  <span class="helped__label-text">Помогло</span>
-                  <svg
-                    class="helped__label-icon"
-                    width="14" height="14" viewBox="0 0 14 14"
-                  >
-                    <path
-                      fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                      d="m3.37 5.85l2.54-4.06a1.09 1.09 0 0 1 .94-.52h0A1.11 1.11 0 0 1 8 2.37v2.91h4.39a1.15 1.15 0 0 1 1.1 1.32l-.8 5.16a1.14 1.14 0 0 1-1.13 1H5a2 2 0 0 1-.9-.21l-.72-.36m-.01-6.34v6.31M1 5.85h2.37v6.31h0H1a.5.5 0 0 1-.5-.5V6.35a.5.5 0 0 1 .5-.5Z"/>
-                  </svg>
-                </label>
-              </div>
-            </footer>
-          </details>
+          <x-questions::question
+            title="Как найти дифференциал?"
+            content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse eos explicabo quasi a libero nesciunt reprehenderit incidunt consequuntur, dolor maiores architecto provident vero obcaecati impedit, natus officia, excepturi qui quisquam."
+            status="published"
+            :tags="['вышмат', '2_курс', 'диффуры']"
+            :views="357"
+            :likes="24"
+            id="question-2"
+          />
         </li>
         <li class="questions__item">
-          <details class="questions__accordion">
-            <summary class="questions__accordion-header">
-              <div class="questions__accordion-header-info">
-                <h3 class="questions__accordion-title h3">
-                  Как найти дифференциал?
-                </h3>
-                <div class="tags">
-                  <ul class="tags__list">
-                    <li class="tags__item">
-                      #вышмат
-                    </li>
-                    <li class="tags__item">
-                      #2_курс
-                    </li>
-                    <li class="tags__item">
-                      #диффуры
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <span class="questions__accordion-indicator"></span>
-            </summary>
-            <div class="questions__accordion-body">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                Esse eos explicabo quasi a libero nesciunt reprehenderit 
-                incidunt consequuntur, dolor maiores architecto provident 
-                vero obcaecati impedit, natus officia, excepturi qui quisquam.
-              </p>
-            </div>
-            <footer class="questions__footer">
-              <div class="helped">
-                <input
-                  class="helped__checkbox"
-                  id="helped-checkbox-3"
-                  name="helped"
-                  type="checkbox"
-                >
-                <label class="helped__label" for="helped-checkbox-3">
-                  <span class="helped__label-text">Помогло</span>
-                  <svg
-                    class="helped__label-icon"
-                    width="14" height="14" viewBox="0 0 14 14"
-                  >
-                    <path
-                      fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                      d="m3.37 5.85l2.54-4.06a1.09 1.09 0 0 1 .94-.52h0A1.11 1.11 0 0 1 8 2.37v2.91h4.39a1.15 1.15 0 0 1 1.1 1.32l-.8 5.16a1.14 1.14 0 0 1-1.13 1H5a2 2 0 0 1-.9-.21l-.72-.36m-.01-6.34v6.31M1 5.85h2.37v6.31h0H1a.5.5 0 0 1-.5-.5V6.35a.5.5 0 0 1 .5-.5Z"/>
-                  </svg>
-                </label>
-              </div>
-            </footer>
-          </details>
+          <x-questions::question
+            title="Как найти дифференциал?"
+            content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse eos explicabo quasi a libero nesciunt reprehenderit incidunt consequuntur, dolor maiores architecto provident vero obcaecati impedit, natus officia, excepturi qui quisquam."
+            status="published"
+            :tags="['вышмат', '2_курс', 'диффуры']"
+            :views="357"
+            :likes="24"
+            id="question-3"
+          />
         </li>
       </ul>
     </div>
   </section>
+  <div class="modal-overlay" id="modal-overlay"></div>
+  <div class="modal" id="modal-form">
+    <div class="modal__inner">
+      <header class="modal__header">
+        <h2 class="modal__title h2">Создание вопроса</h2>
+        <button class="modal__close-button">&times;</button>
+      </header>
+      <div class="modal__body">
+        <form id="question-form" method="POST" action="/questions">
+          <div class="form-group">
+            <label for="title">Вопрос</label>
+            <input
+              class="input"
+              id="title"
+              name="title"
+              type="text"
+              required
+            >
+          </div>
+          <div class="form-group">
+            <label for="content">Содержание</label>
+            <textarea
+              class="textarea"
+              id="content"
+              name="content"
+              rows="5"
+              required
+            >
+            </textarea>
+          </div>
+          <div class="form-group">
+            <label for="tags">Теги (через запятую)</label>
+            <input
+              class="input"
+              id="tags"
+              name="tags"
+              type="text"
+              placeholder="#математика, #программирование"
+            >
+          </div>
+          <button class="button" type="submit">Опубликовать</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const openModalBtn = document.querySelector('.questions__add-button');
+      const modalOverlay = document.getElementById('modal-overlay');
+      const modal = document.getElementById('modal-form');
+      const closeModalBtn = document.querySelector('.modal__close-button');
+
+      function openModal() {
+        modalOverlay.style.display = 'block';
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modalOverlay.style.display = 'none';
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+
+      if (openModalBtn) {
+        openModalBtn.addEventListener('click', openModal);
+      }
+
+      if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeModal);
+      }
+
+      modalOverlay.addEventListener('click', closeModal);
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+          closeModal();
+        }
+      });
+
+      const form = document.getElementById('question-form');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const formData = new FormData(form);
+
+          fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest'
+            }
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              closeModal();
+              location.reload();
+            } else {
+              alert(data.message);
+            }
+          })
+          .catch(error => console.error('Ошибка:', error));
+        });
+      }
+    });
+  </script>
 @endsection

@@ -91,6 +91,8 @@ $app->routeMiddleware([
 $app->register(Users\Providers\UsersServiceProvider::class);
 $app->register(Questions\Providers\QuestionsServiceProvider::class);
 
+$app->register(Illuminate\View\ViewServiceProvider::class);
+
 $app->singleton('view', function ($app) {
     $config = $app->make('config')->get('view');
     $filesystem = new Illuminate\Filesystem\Filesystem();

@@ -1,0 +1,37 @@
+.helped {
+  display: inline-flex;
+  color: var(--color-gray);
+  border: 1px solid var(--color-gray);
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+.helped:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+.helped:has(.helped__checkbox:checked) {
+  color: var(--color-light);
+  background-color: var(--color-accent);
+  border-color: transparent;
+}
+.helped__checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.helped__label {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  padding: 6px 12px;
+}
+.helped__label-text {
+  font-size: 16px;
+  font-weight: 500;
+}
+.helped__label-icon {
+  width: 24px;
+  height: 24px;
+}
