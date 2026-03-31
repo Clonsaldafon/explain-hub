@@ -10,10 +10,10 @@
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/users/auth.css">
+  <link rel="stylesheet" href="/css/questions/questions.css">
+  <link rel="stylesheet" href="/css/questions/tags.css">
 </head>
 <body>
-  <div class="container">
-    <?php echo $__env->yieldContent("content"); ?>
-  </div>
+  <?php echo $__env->yieldContent("content"); ?>
 </body>
 </html><?php /**PATH /home/anton-bezmelnitsin/Рабочий стол/explain-hub/resources/views/layouts/app.blade.php ENDPATH**/ ?>

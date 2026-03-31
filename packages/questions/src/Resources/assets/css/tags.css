@@ -1,0 +1,11 @@
+.tags {}
+
+.tags__list {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.tags__item {
+  color: var(--color-gray);
+}

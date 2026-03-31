@@ -10,10 +10,10 @@
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/users/auth.css">
+  <link rel="stylesheet" href="/css/questions/questions.css">
+  <link rel="stylesheet" href="/css/questions/tags.css">
 </head>
 <body>
-  <div class="container">
-    @yield("content")
-  </div>
+  @yield("content")
 </body>
 </html>

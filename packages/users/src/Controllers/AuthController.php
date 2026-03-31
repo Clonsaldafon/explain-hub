@@ -45,7 +45,7 @@ class AuthController extends Controller
         $_SESSION['user_role'] = $user->role;
         $_SESSION['user_name'] = $user->name;
 
-        return redirect('/profile');
+        return redirect('/questions');
     }
 
     public function showRegisterForm()
@@ -105,7 +105,7 @@ class AuthController extends Controller
             $_SESSION['user_role'] = $user->role;
             $_SESSION['user_name'] = $user->name;
 
-            return redirect('/profile');
+            return redirect('/questions');
         } catch (\Exception $e) {
             flash('error', 'Ошибка при регистрации. Попробуйте позже.');
             return redirect('/register');
