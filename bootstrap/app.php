@@ -74,7 +74,8 @@ $app->configure('view');
 */
 
 $app->routeMiddleware([
-    'auth' => Users\Middleware\AuthMiddleware::class
+    'auth' => Users\Middleware\AuthMiddleware::class,
+    'admin' => Admin\Middleware\AdminMiddleware::class,
 ]);
 
 /*
@@ -90,6 +91,7 @@ $app->routeMiddleware([
 
 $app->register(Users\Providers\UsersServiceProvider::class);
 $app->register(Questions\Providers\QuestionsServiceProvider::class);
+$app->register(Admin\Providers\AdminServiceProvider::class);
 
 $app->singleton('view', function ($app) {
     $config = $app->make('config')->get('view');

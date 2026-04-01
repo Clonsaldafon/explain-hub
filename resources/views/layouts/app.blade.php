@@ -10,6 +10,9 @@
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/users/auth.css">
+  @if(request()->is('admin*'))
+    <link rel="stylesheet" href="/css/admin/admin.css">
+  @endif
 </head>
 <body>
   <div class="container">
