@@ -7,6 +7,8 @@ $router->group(['prefix' => 'admin', 'middleware' => 'admin'], function () use (
     $router->get('/', ['uses' => 'Admin\Controllers\AdminController@index']);
 
     $router->get('/users', ['uses' => 'Admin\Controllers\AdminController@users']);
+    $router->get('/users/{id}/edit', ['uses' => 'Admin\Controllers\AdminController@editUser']);
+    $router->post('/users/{id}/update', ['uses' => 'Admin\Controllers\AdminController@updateUser']);
     $router->post('/users/{id}/ban', ['uses' => 'Admin\Controllers\AdminController@banUser']);
     $router->post('/users/{id}/unban', ['uses' => 'Admin\Controllers\AdminController@unbanUser']);
 

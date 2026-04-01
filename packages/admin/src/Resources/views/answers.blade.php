@@ -17,6 +17,17 @@
     <div class="flash-message flash-error">{{ session('_flash.error') }}</div>
   @endif
 
+  <form method="get" action="/admin/answers" class="search-form">
+    <input type="text" name="search" placeholder="Поиск по содержимому ответа" value="{{ request('search') }}">
+    <select name="status">
+      <option value="">Все статусы</option>
+      <option value="draft" {{ request('status') == 'draft' ? 'selected' : '' }}>Черновик</option>
+      <option value="published" {{ request('status') == 'published' ? 'selected' : '' }}>Опубликован</option>
+      <option value="rejected" {{ request('status') == 'rejected' ? 'selected' : '' }}>Отклонен</option>
+    </select>
+    <button type="submit" class="btn btn-primary">Поиск</button>
+  </form>
+
   <table class="admin-table">
     <thead>
       <tr>
@@ -44,5 +55,7 @@
       @endforeach
     </tbody>
   </table>
+
+  {{ $answers->links() }}
 </div>
 @endsection
