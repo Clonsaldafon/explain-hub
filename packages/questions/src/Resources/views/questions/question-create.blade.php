@@ -21,6 +21,7 @@
     </header>
     <div class="section__body">
       <form id="question-form" method="POST" action="/questions">
+        {!! csrf_field() !!}
         <div class="form-group">
           <label for="title">Вопрос</label>
           <input
