@@ -16,7 +16,6 @@ class ContainerTest
 
         $container = new Container();
 
-        // Test 1: Basic binding and resolution
         echo "Test 1: Basic binding and resolution\n";
         $container->bind('test.string', 'Hello World!');
         $result = $container->get('test.string');
@@ -24,7 +23,6 @@ class ContainerTest
         echo "Expected: Hello World!\n";
         echo "Status: " . ($result === 'Hello World!' ? 'PASS' : 'FAIL') . "\n\n";
 
-        // Test 2: Singleton binding
         echo "Test 2: Singleton binding\n";
         $container->singleton('test.singleton', function() {
             return new \stdClass();
@@ -36,7 +34,6 @@ class ContainerTest
         echo "Same instance: " . ($singleton1 === $singleton2 ? 'YES' : 'NO') . "\n";
         echo "Status: " . ($singleton1 === $singleton2 ? 'PASS' : 'FAIL') . "\n\n";
 
-        // Test 3: Class resolution with dependencies
         echo "Test 3: Class resolution with dependencies\n";
 
         class TestDependency {
@@ -67,7 +64,6 @@ class ContainerTest
         echo "Expected: Dependency working!\n";
         echo "Status: " . ($result === 'Dependency working!' ? 'PASS' : 'FAIL') . "\n\n";
 
-        // Test 4: Exception handling
         echo "Test 4: Exception handling\n";
         try {
             $container->get('non.existent.service');
@@ -83,6 +79,5 @@ class ContainerTest
     }
 }
 
-// Run the test
 $test = new ContainerTest();
 $test->run();

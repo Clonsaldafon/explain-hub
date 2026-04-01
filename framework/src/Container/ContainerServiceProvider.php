@@ -20,6 +20,5 @@ class ContainerServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        //
     }
 }
