@@ -65,7 +65,7 @@ class AnswerController extends Controller
 
         try {
             Answer::create([
-                'answer' => $content,
+                'answer' => ['text' => $content],
                 'author_id' => auth()->id(),
                 'question_id' => $question->id,
                 'status' => 'on_moderate',
@@ -119,7 +119,7 @@ class AnswerController extends Controller
         }
 
         try {
-            $answer->update(['answer' => $content]);
+            $answer->update(['answer' => ['text' => $content]]);
 
             flash('success', 'Answer updated successfully');
             return redirect('/questions/' . $answer->question_id);

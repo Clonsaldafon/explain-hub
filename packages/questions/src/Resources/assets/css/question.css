@@ -1,0 +1,40 @@
+.question {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.question__header {
+  padding-block: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 40px;
+  border-bottom: 1px solid var(--color-gray);
+}
+
+.question__metrics {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+.question__metrics-likes {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.question__metrics-likes svg,
+.question__metrics-likes span {
+  transition-duration: var(--transition-duration);
+}
+.question__metrics-likes:hover svg,
+.question__metrics-likes:hover span {
+  color: var(--color-like);
+}
+
+.question__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 20px;
+}

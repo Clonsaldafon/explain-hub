@@ -1,6 +1,4 @@
-@extends("layouts.app")
-
-@section("content")
+<?php $__env->startSection("content"); ?>
   <section class="section container">
     <header class="section__header">
       <h1 class="section__title h1">Мои вопросы</h1>
@@ -21,9 +19,9 @@
     </header>
     <div class="section__body">
       <ul class="questions__list">
-        @foreach ($questions as $question)
+        <?php $__currentLoopData = $questions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $question): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
           <li class="questions__item">
-            @component('questions::components.question-card', [
+            <?php $__env->startComponent('questions::components.question-card', [
               'id' => $question->id,
               'title' => $question->title,
               'content' => $question->content,
@@ -32,11 +30,12 @@
               'views' => $question->views,
               'likes' => $question->likes,
               'author_id' => $question->author_id
-            ])
-            @endcomponent
+            ]); ?>
+            <?php echo $__env->renderComponent(); ?>
           </li>
-        @endforeach
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       </ul>
     </div>
   </section>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("layouts.app", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/anton-bezmelnitsin/Рабочий стол/explain-hub/packages/questions/src/Providers/../Resources/views/questions/my-questions.blade.php ENDPATH**/ ?>

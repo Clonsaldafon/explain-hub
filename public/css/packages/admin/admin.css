@@ -8,6 +8,10 @@
 }
 
 .admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 20px;
     background: #f8f9fa;
     padding: 20px;
     border-radius: 8px;
@@ -19,6 +23,20 @@
     margin: 0;
     color: #333;
     font-size: 2em;
+}
+.admin-header a {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #007bff;
+    border: 1px solid #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition-duration: 0.3s;
+}
+.admin-header a:hover {
+    background-color: #007bff;
+    color: white;
 }
 
 .admin-stats {

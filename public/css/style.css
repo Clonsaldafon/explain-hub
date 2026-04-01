@@ -4,11 +4,22 @@
   --color-dark: #111111;
 
   --color-gray: #999999;
-
+  
   --color-accent: #F1851F;
   --color-accent-alt: #E27611;
 
   --color-error: #C52B2B;
+
+  --color-draft: rgb(160, 160, 160);
+  --color-draft-background: rgba(160, 160, 160, 0.15);
+  --color-published: rgb(13, 129, 28);
+  --color-published-background: rgba(13, 129, 28, 0.15);
+  --color-on-moderate: rgb(202, 153, 19);
+  --color-on-moderate-background: rgba(202, 153, 19, 0.15);
+  --color-rejected: rgb(175, 33, 33);
+  --color-rejected-background: rgba(175, 33, 33, 0.15);
+
+  --color-like: #F04040;
 
   --container-width: 1024px;
   --container-padding-x: 40px;
@@ -70,9 +81,14 @@ svg * {
   align-items: center;
   column-gap: 20px;
 }
+.section__body {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+}
 
 .button {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   column-gap: 5px;
   padding: 8px 16px;
@@ -90,6 +106,13 @@ svg * {
 .button--outlined {
   background-color: transparent;
   border-color: var(--color-accent);
+}
+.button--disabled {
+  color: var(--color-gray);
+  background-color: transparent;
+  border-color: var(--color-gray);
+  pointer-events: none;
+  cursor: not-allowed;
 }
 
 .input,

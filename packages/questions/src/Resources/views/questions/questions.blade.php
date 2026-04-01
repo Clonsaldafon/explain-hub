@@ -74,6 +74,12 @@
         >
           Мои вопросы
         </a>
+        <a
+          class="button button--outlined"
+          href="/my-answers"
+        >
+          Мои ответы
+        </a>
       </div>
       @else
         <a
@@ -94,7 +100,8 @@
               'status' => $question->status,
               'tags' => $question->tags ?? [],
               'views' => $question->views,
-              'likes' => $question->likes
+              'likes' => $question->likes,
+              'author_id' => $question->author_id
             ])
             @endcomponent
           </li>

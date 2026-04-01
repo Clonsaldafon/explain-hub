@@ -4,6 +4,7 @@ namespace Questions\Controllers;
 use App\Http\Controllers\Controller;
 use Exception;
 use Illuminate\Http\Request;
+use Questions\Models\Answer;
 use Questions\Models\Question;
 use Questions\Models\Tag;
 use Users\Models\User;
@@ -155,7 +156,12 @@ class QuestionController extends Controller
             }
         }
 
-        return view('questions::questions.question', compact('question'));
+        $answers = Answer::with('question')
+            ->where('status', 'published')
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('questions::questions.question', compact('question', 'answers'));
     }
 
     public function edit($id)

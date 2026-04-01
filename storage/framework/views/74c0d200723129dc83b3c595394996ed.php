@@ -72,6 +72,12 @@
         >
           Мои вопросы
         </a>
+        <a
+          class="button button--outlined"
+          href="/my-answers"
+        >
+          Мои ответы
+        </a>
       </div>
       <?php else: ?>
         <a
@@ -92,7 +98,8 @@
               'status' => $question->status,
               'tags' => $question->tags ?? [],
               'views' => $question->views,
-              'likes' => $question->likes
+              'likes' => $question->likes,
+              'author_id' => $question->author_id
             ]); ?>
             <?php echo $__env->renderComponent(); ?>
           </li>

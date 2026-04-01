@@ -7,9 +7,9 @@
       <div class="section__header-actions">
          <a
           class="button button--outlined"
-          href="javascript:history.back()"
+          href="/questions"
         >
-          Назад
+          Все вопросы
         </a>
         <a
           class="button button--outlined"
@@ -40,8 +40,7 @@
             name="content"
             rows="5"
             required
-          >
-          </textarea>
+          ></textarea>
         </div>
         <div class="form-group">
           <label for="tags">Теги (через запятую)</label>

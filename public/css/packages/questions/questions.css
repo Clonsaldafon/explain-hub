@@ -26,7 +26,7 @@
 }
 
 .questions__add-button {
-  display: inline-flex;
+  width: max-content;
 }
 .questions__add-button--disabled {
   color: var(--color-gray);

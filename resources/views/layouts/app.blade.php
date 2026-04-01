@@ -13,8 +13,13 @@
   <link rel="stylesheet" href="/css/packages/questions/modal.css">
   <link rel="stylesheet" href="/css/packages/questions/questions.css">
   <link rel="stylesheet" href="/css/packages/questions/question-card.css">
+  <link rel="stylesheet" href="/css/packages/questions/question.css">
+  <link rel="stylesheet" href="/css/packages/questions/status.css">
   <link rel="stylesheet" href="/css/packages/questions/tags.css">
   <link rel="stylesheet" href="/css/packages/questions/helped.css">
+  <link rel="stylesheet" href="/css/packages/questions/metrics.css">
+  <link rel="stylesheet" href="/css/packages/questions/answers.css">
+  <link rel="stylesheet" href="/css/packages/questions/answer-card.css">
   @if(request()->is('admin*'))
     <link rel="stylesheet" href="/css/packages/admin/admin.css">
   @endif

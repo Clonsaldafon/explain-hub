@@ -6,6 +6,7 @@
 <div class="admin-container">
   <div class="admin-header">
     <h1>Админ-панель</h1>
+    <a href="/questions">Назад</a>
   </div>
 
   <div class="admin-stats">
