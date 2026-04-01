@@ -1,5 +1,5 @@
 <details class="question">
-  <summary class="question__header">
+  <summary class="question__header question__container">
     <div class="question__header-info">
       <h3 class="question__title h3">
         <?php echo e($title); ?>
@@ -57,10 +57,10 @@
       <span class="question__indicator"></span>
     </div>
   </summary>
-  <div class="question__body">
+  <div class="question__body question__container">
     <p><?php echo e($content); ?></p>
   </div>
-  <footer class="question__footer">
+  <footer class="question__footer question__container">
     <div class="helped">
       <input
         class="helped__checkbox"

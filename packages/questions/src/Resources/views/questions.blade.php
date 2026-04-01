@@ -18,7 +18,6 @@
           Найти
         </button>
       </div>
-      
       <a
         class="button button--outlined"
         href="/logout"
@@ -31,7 +30,7 @@
         class="questions__add-button button"
         type="button"
       >
-        <span class="questions__add-button-text">Добавить вопрос</span>
+        <span class="questions__add-button-text">Задать вопрос</span>
         <svg
           class="questions__add-button-icon"
           width="24" height="24" viewBox="0 0 24 24"

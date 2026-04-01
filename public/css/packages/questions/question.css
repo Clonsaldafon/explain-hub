@@ -1,7 +1,6 @@
 .question {
   --indicatorVerticalRotate: 90deg;
 
-  padding: 20px 30px;
   background-color: var(--color-light);
   border: 1px solid var(--color-gray);
   border-radius: 15px;
@@ -12,6 +11,10 @@
 }
 .question:hover {
   box-shadow: 0 0 5px 0 var(--color-gray);
+}
+
+.question__container {
+  padding: 20px 30px;
 }
 
 .question__header {
@@ -70,7 +73,5 @@
 }
 
 .question__body {
-  margin-top: 30px;
-  padding-block: 30px;
   border-top: 1px solid var(--color-dark);
 }
