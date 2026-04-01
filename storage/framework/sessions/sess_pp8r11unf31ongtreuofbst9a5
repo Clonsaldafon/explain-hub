@@ -1,1 +1,1 @@
-_csrf_token|s:64:"74607c108346b47933a69ba69d50ef0d23e864d8e5369cfc48d69faa47eae68b";
+_csrf_token|s:64:"74607c108346b47933a69ba69d50ef0d23e864d8e5369cfc48d69faa47eae68b";user_id|i:5;user_role|s:5:"admin";user_name|s:52:"Безмельницин Антон Павлович";_flash|a:1:{s:7:"success";s:52:"Пользователь разблокирован.";}
