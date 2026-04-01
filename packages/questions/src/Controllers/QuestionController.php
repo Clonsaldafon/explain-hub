@@ -67,7 +67,7 @@ class QuestionController extends Controller
             'filter_type' => $request->has('author_id') ? 'user' : 'all'
         ]);
     }
-    
+
     public function create()
     {
         if (!auth()->check()) {
@@ -145,7 +145,8 @@ class QuestionController extends Controller
     public function show($id)
     {
         $question = Question::with('author')->findOrFail($id);
-        $question->increment('views');
+
+        $question->incrementViews();
 
         if ($question->status !== 'published') {
             $user = auth()->user();

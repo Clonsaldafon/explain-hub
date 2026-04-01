@@ -4,6 +4,7 @@ namespace Questions\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Users\Models\User;
 
 class Answer extends Model
@@ -39,12 +40,36 @@ class Answer extends Model
         return $this->belongsTo(User::class, 'author_id');
     }
 
-    public function incrementLikes(): void
-    {
-        $this->increment('likes');
+    public function likes(): HasMany {
+        return $this->hasMany(AnswerLike::class);
     }
 
-    public function incrementViews(): void {
+    public function isLikedBy($userId): bool {
+        return $this->likes()->where('user_id', $userId)->exists();
+    }
+
+    public function toggleLike($userId): bool {
+        if ($this->isLikedBy($userId)) {
+            $this->likes()->where('user_id', $userId)->first()?->delete();
+            $this->decrement('likes');
+            return false;
+        }
+        else {
+            $this->likes()->create(['user_id' => $userId]);
+            $this->increment('likes');
+            return true;
+        }
+    }
+
+    public function incrementViews($sessionId = null): void {
+        $viewed = session('viewed_answers', []);
+        if (in_array($this->id, $viewed)) {
+            return;
+        }
+
+        $viewed[] = $this->id;
+        $viewed = array_slice($viewed, -50);
+        session(['viewed_answers' => $viewed]);
         $this->increment('views');
     }
 }
