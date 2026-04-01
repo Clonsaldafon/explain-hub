@@ -46,3 +46,10 @@
 .auth__redirect-link:hover {
   color: var(--color-accent-alt);
 }
+.auth__redirect-link--gray {
+  color: var(--color-gray);
+}
+.auth__redirect-link--gray:hover {
+  color: var(--color-gray);
+  text-decoration: underline;
+}

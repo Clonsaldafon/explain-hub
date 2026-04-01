@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/css/packages/users/auth.css">
   <link rel="stylesheet" href="/css/packages/questions/modal.css">
   <link rel="stylesheet" href="/css/packages/questions/questions.css">
-  <link rel="stylesheet" href="/css/packages/questions/question.css">
+  <link rel="stylesheet" href="/css/packages/questions/question-card.css">
   <link rel="stylesheet" href="/css/packages/questions/tags.css">
   <link rel="stylesheet" href="/css/packages/questions/helped.css">
 </head>

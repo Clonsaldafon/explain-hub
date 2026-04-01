@@ -49,6 +49,14 @@
           Зарегистрироваться
         </a>
       </div>
+      <div class="auth__redirect">
+        <a
+          class="auth__redirect-link auth__redirect-link--gray"
+          href="/questions"
+        >
+          Зайти как гость
+        </a>
+      </div>
     </form>
   </div>
 <?php $__env->stopSection(); ?>

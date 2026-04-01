@@ -37,15 +37,15 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         return $this->hasMany(Answer::class, 'author_id');
     }
 
-    public function isAdmin() {
+    public function isAdmin(): bool {
         return $this->role === 'admin';
     }
 
-    public function isModerator() {
+    public function isModerator(): bool {
         return in_array($this->role, ['moderator', 'admin']);
     }
 
-    public function isEditor() {
+    public function isEditor(): bool {
         return in_array($this->role, ['editor', 'moderator', 'admin']);
     }
 

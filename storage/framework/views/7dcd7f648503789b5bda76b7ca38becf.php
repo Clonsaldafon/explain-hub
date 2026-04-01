@@ -1,8 +1,6 @@
-@extends("layouts.app")
+<?php ($old = session('old') ?: []); ?>
 
-@php($old = session('old') ?: [])
-
-@section("content")
+<?php $__env->startSection("content"); ?>
   <div class="auth">
     <form
       class="auth__form"
@@ -16,7 +14,7 @@
           class="auth__input"
           id="name-input"
           name="name"
-          value="{{ $old['name'] ?? '' }}"
+          value="<?php echo e($old['name'] ?? ''); ?>"
           required
         >
       </div>
@@ -27,7 +25,7 @@
           id="email-input"
           name="email"
           type="email"
-          value="{{ $old['email'] ?? '' }}"
+          value="<?php echo e($old['email'] ?? ''); ?>"
           required
         >
       </div>
@@ -53,16 +51,16 @@
           required
         >
       </div>
-      @php($errors = session('errors'))
-      @if($errors && is_array($errors))
+      <?php ($errors = session('errors')); ?>
+      <?php if($errors && is_array($errors)): ?>
           <div class="auth__error">
-              @foreach($errors as $field => $messages)
-                  @foreach($messages as $message)
-                      <p>{{ $message }}</p>
-                  @endforeach
-              @endforeach
+              <?php $__currentLoopData = $errors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $field => $messages): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                  <?php $__currentLoopData = $messages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $message): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                      <p><?php echo e($message); ?></p>
+                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>
-      @endif
+      <?php endif; ?>
       <button
         class="auth__button button"
         type="submit"
@@ -88,4 +86,5 @@
       </div>
     </form>
   </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("layouts.app", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/anton-bezmelnitsin/Рабочий стол/explain-hub/packages/users/src/Providers/../Resources/views/auth/register.blade.php ENDPATH**/ ?>

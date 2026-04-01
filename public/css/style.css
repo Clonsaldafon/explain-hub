@@ -62,8 +62,13 @@ svg * {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  column-gap: 10px;
+  column-gap: 20px;
   padding-block: 20px;
+}
+.section__header-actions {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
 }
 
 .button {

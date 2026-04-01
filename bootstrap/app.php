@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/../app/helpers.php';
+
 require_once __DIR__.'/../vendor/autoload.php';
 
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
@@ -74,7 +76,8 @@ $app->configure('view');
 */
 
 $app->routeMiddleware([
-    'auth' => Users\Middleware\AuthMiddleware::class
+    'auth' => Users\Middleware\AuthMiddleware::class,
+    'role' => Users\Middleware\RoleMiddleware::class
 ]);
 
 /*

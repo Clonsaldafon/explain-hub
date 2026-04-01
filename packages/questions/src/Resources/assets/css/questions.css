@@ -18,3 +18,24 @@
 .questions__list:not(:first-child) {
   margin-top: 20px;
 }
+
+.questions__buttons {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.questions__add-button {
+  display: inline-flex;
+}
+.questions__add-button--disabled {
+  color: var(--color-gray);
+  background-color: transparent;
+  border-color: var(--color-gray);
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.questions__item-link {
+  display: block;
+}

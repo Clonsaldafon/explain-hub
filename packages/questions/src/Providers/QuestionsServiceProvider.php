@@ -23,7 +23,7 @@ class QuestionsServiceProvider extends ServiceProvider
             ], 'public');
         }
 
-        Blade::component('question', Question::class);
+        Blade::component('question-card', Question::class);
         Blade::component('tag-list', TagList::class);
     }
 
