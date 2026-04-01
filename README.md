@@ -110,7 +110,3 @@ Run tests with PHPUnit:
 - CSRF protection on forms.
 - Rate limiting on login.
 - Middleware for role checking.
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
