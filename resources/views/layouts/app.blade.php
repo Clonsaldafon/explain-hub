@@ -16,16 +16,12 @@
   <link rel="stylesheet" href="/css/packages/questions/question.css">
   <link rel="stylesheet" href="/css/packages/questions/status.css">
   <link rel="stylesheet" href="/css/packages/questions/tags.css">
-  <link rel="stylesheet" href="/css/packages/questions/helped.css">
+  <link rel="stylesheet" href="/css/packages/questions/like-button.css">
   <link rel="stylesheet" href="/css/packages/questions/metrics.css">
   <link rel="stylesheet" href="/css/packages/questions/answers.css">
   <link rel="stylesheet" href="/css/packages/questions/answer-card.css">
   @if(request()->is('admin*'))
     <link rel="stylesheet" href="/css/packages/admin/admin.css">
-  @endif
-  <link rel="stylesheet" href="/css/users/auth.css">
-  @if(request()->is('admin*'))
-    <link rel="stylesheet" href="/css/admin/admin.css">
   @endif
 </head>
 <body>

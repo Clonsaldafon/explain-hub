@@ -26,16 +26,26 @@
           </g>
         </svg>
       @endcomponent
-      @component('questions::components.metrics', [
-        'value' => $likes
-      ])
-        <svg width="24" height="24" viewBox="0 0 24 24">
-          <path
-            fill="currentColor"
-            d="M20 8h-5.612l1.123-3.367c.202-.608.1-1.282-.275-1.802S14.253 2 13.612 2H12c-.297 0-.578.132-.769.36L6.531 8H4c-1.103 0-2 .897-2 2v9c0 1.103.897 2 2 2h13.307a2.01 2.01 0 0 0 1.873-1.298l2.757-7.351A1 1 0 0 0 22 12v-2c0-1.103-.897-2-2-2M4 10h2v9H4zm16 1.819L17.307 19H8V9.362L12.468 4h1.146l-1.562 4.683A.998.998 0 0 0 13 10h7z"
-          />
-        </svg>
-      @endcomponent
+      <div class="question-card__header-metrics-likes">
+        <form method="POST" action="{{ '/questions/' . $id . '/like' }}" class="like-form">
+          {!! csrf_field() !!}
+          <button
+            class="like-button {{ auth()->check() && $liked ? 'like-button--liked' : '' }}"
+            type="submit"
+          >
+            @component('questions::components.metrics', [
+              'value' => $likes
+            ])
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M20 8h-5.612l1.123-3.367c.202-.608.1-1.282-.275-1.802S14.253 2 13.612 2H12c-.297 0-.578.132-.769.36L6.531 8H4c-1.103 0-2 .897-2 2v9c0 1.103.897 2 2 2h13.307a2.01 2.01 0 0 0 1.873-1.298l2.757-7.351A1 1 0 0 0 22 12v-2c0-1.103-.897-2-2-2M4 10h2v9H4zm16 1.819L17.307 19H8V9.362L12.468 4h1.146l-1.562 4.683A.998.998 0 0 0 13 10h7z"
+                />
+              </svg>
+            @endcomponent
+          </button>
+        </form>
+      </div>
       <span class="question-card__indicator"></span>
     </div>
   </summary>
@@ -43,26 +53,6 @@
     <p>{{ $content }}</p>
   </div>
   <footer class="question-card__footer question-card__container">
-    <div class="helped">
-      <input
-        class="helped__checkbox"
-        id="helped-checkbox-{{ $id ?? uniqid() }}"
-        name="helped"
-        type="checkbox"
-      >
-      <label class="helped__label" for="helped-checkbox-{{ $id ?? uniqid() }}">
-        <span class="helped__label-text">Помогло</span>
-        <svg
-          class="helped__label-icon"
-          width="24" height="24" viewBox="0 0 24 24"
-        >
-          <path
-            fill="currentColor"
-            d="M20 8h-5.612l1.123-3.367c.202-.608.1-1.282-.275-1.802S14.253 2 13.612 2H12c-.297 0-.578.132-.769.36L6.531 8H4c-1.103 0-2 .897-2 2v9c0 1.103.897 2 2 2h13.307a2.01 2.01 0 0 0 1.873-1.298l2.757-7.351A1 1 0 0 0 22 12v-2c0-1.103-.897-2-2-2M4 10h2v9H4zm16 1.819L17.307 19H8V9.362L12.468 4h1.146l-1.562 4.683A.998.998 0 0 0 13 10h7z"
-          />
-        </svg>
-      </label>
-    </div>
     <div class="question-card__footer-actions">
       @if (auth()->id() === $author_id)
         <a

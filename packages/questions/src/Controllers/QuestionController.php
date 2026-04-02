@@ -151,6 +151,20 @@ class QuestionController extends Controller
             ->where('status', 'published')
             ->orderBy('created_at', 'desc')
             ->get();
+        
+        foreach ($answers as $answer) {
+            $answer->incrementViews();
+        }
+
+        if (auth()->check()) {
+            $userId = auth()->id();
+            $question->load(['likes' => function ($q) use ($userId) {
+                $q->where('user_id', $userId);
+            }]);
+            $answers->load(['likes' => function ($q) use ($userId) {
+                $q->where('user_id', $userId);
+            }]);
+        }
 
         return view('questions::questions.question', compact('question', 'answers'));
     }

@@ -1,0 +1,13 @@
+.like-button {
+  display: flex;
+  align-items: center;
+}
+
+.like-button:hover svg,
+.like-button:hover span {
+  color: var(--color-like);
+}
+.like-button--liked svg,
+.like-button--liked span {
+  color: var(--color-like);
+}
