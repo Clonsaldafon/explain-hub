@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/packages/users/auth.css">
+  <link rel="stylesheet" href="/css/packages/users/profile.css">
   <link rel="stylesheet" href="/css/packages/questions/modal.css">
   <link rel="stylesheet" href="/css/packages/questions/questions.css">
   <link rel="stylesheet" href="/css/packages/questions/question-card.css">

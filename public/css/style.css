@@ -81,6 +81,27 @@ svg * {
   align-items: center;
   column-gap: 20px;
 }
+
+.section__nav-list {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+.section__nav-item {
+  border-bottom: 2px solid transparent;
+  transition-duration: var(--transition-duration);
+}
+.section__nav-item:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+.section__nav-link {
+  padding-block: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-dark);
+}
+
 .section__body {
   display: flex;
   flex-direction: column;
