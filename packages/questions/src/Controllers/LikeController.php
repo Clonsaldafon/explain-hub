@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Exception;
 use Illuminate\Http\Request;
 use Questions\Models\Answer;
+use Questions\Models\Question;
 
 class LikeController extends Controller
 {

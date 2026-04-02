@@ -64,14 +64,15 @@ class Question extends Model
     }
 
     public function toggleLike($userId): bool {
-        if ($this->isLikedBy($userId)) {
-            $this->likes()->where('user_id', $userId)->first()?->delete();
-            $this->decrement('likes');
+        $existing = $this->likes()->where('user_id', $userId)->first();
+
+        if ($existing) {
+            $existing->delete();
+            $this->newQuery()->where('id', $this->id)->decrement('likes');
             return false;
-        }
-        else {
+        } else {
             $this->likes()->create(['user_id' => $userId]);
-            $this->increment('likes');
+            $this->newQuery()->where('id', $this->id)->increment('likes');
             return true;
         }
     }
