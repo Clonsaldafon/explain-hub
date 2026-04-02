@@ -8,7 +8,10 @@ $router->post('/login', 'Users\Controllers\AuthController@login');
 $router->get('/register', 'Users\Controllers\AuthController@showRegisterForm');
 $router->post('/register', 'Users\Controllers\AuthController@register');
 
+
 $router->group(['middleware' => 'auth'], function () use ($router) {
     $router->get('/logout', 'Users\Controllers\AuthController@logout');
     $router->get('/profile', 'Users\Controllers\ProfileController@index');
+    $router->put('/profile/email', 'Users\Controllers\ProfileController@updateEmail');
+    $router->put('/profile/password', 'Users\Controllers\ProfileController@updatePassword');
 });

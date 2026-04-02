@@ -23,6 +23,10 @@
   @if(request()->is('admin*'))
     <link rel="stylesheet" href="/css/packages/admin/admin.css">
   @endif
+  <link rel="stylesheet" href="/css/users/auth.css">
+  @if(request()->is('admin*'))
+    <link rel="stylesheet" href="/css/admin/admin.css">
+  @endif
 </head>
 <body>
   @yield("content")

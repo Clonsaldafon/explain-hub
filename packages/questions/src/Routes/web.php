@@ -22,9 +22,12 @@ $router->group(['middleware' => 'auth'], function () use ($router) {
     $router->get('/answers/{id}/edit', 'Questions\Controllers\AnswerController@edit');
     $router->put('/answers/{id}', 'Questions\Controllers\AnswerController@update');
     $router->delete('/answers/{id}', 'Questions\Controllers\AnswerController@destroy');
-    
+
     $router->get('/my-questions', 'Questions\Controllers\QuestionController@myQuestions');
     $router->get('/my-answers', 'Questions\Controllers\AnswerController@myAnswers');
+
+    $router->post('/answers/{id}/like', 'Questions\Controllers\LikeController@toggleLikeOnAnswer');
+    $router->post('/questions/{id}/like', 'Questions\Controllers\LikeController@toggleLikeOnQuestion');
 });
 
 $router->group(['middleware' => 'role:editor,moderator,admin'], function () use ($router) {
