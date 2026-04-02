@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/../app/helpers.php';
+
 require_once __DIR__.'/../vendor/autoload.php';
 
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
@@ -74,8 +76,10 @@ $app->configure('view');
 */
 
 $app->routeMiddleware([
+    'csrf' => App\Http\Middleware\VerifyCsrfToken::class,
     'auth' => Users\Middleware\AuthMiddleware::class,
-    'admin' => Admin\Middleware\AdminMiddleware::class,
+    'role' => Users\Middleware\RoleMiddleware::class,
+    'admin' => Admin\Middleware\AdminMiddleware::class
 ]);
 
 /*
@@ -88,10 +92,12 @@ $app->routeMiddleware([
 | totally optional, so you are not required to uncomment this line.
 |
 */
-
+$app->register(Laravel\Tinker\TinkerServiceProvider::class);
 $app->register(Users\Providers\UsersServiceProvider::class);
 $app->register(Questions\Providers\QuestionsServiceProvider::class);
 $app->register(Admin\Providers\AdminServiceProvider::class);
+
+$app->register(Illuminate\View\ViewServiceProvider::class);
 
 $app->singleton('view', function ($app) {
     $config = $app->make('config')->get('view');

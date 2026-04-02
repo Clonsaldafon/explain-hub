@@ -4,3 +4,10 @@
 /vendor/
 /.bash_history
 .env
+
+/storage/*
+!/storage/.gitignore
+!/storage/framework/
+!/storage/framework/.gitignore
+!/storage/logs/
+!/storage/logs/.gitignore

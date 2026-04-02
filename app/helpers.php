@@ -30,3 +30,38 @@ if (!function_exists('session')) {
         return $_SESSION[$key] ?? $default;
     }
 }
+
+if (!function_exists('csrf_token')) {
+    function csrf_token() {
+        return $_SESSION['_csrf_token'] ?? '';
+    }
+}
+
+if (!function_exists('csrf_field')) {
+    function csrf_field() {
+        return '<input type="hidden" name="_token" value="' . csrf_token() . '">';
+    }
+}
+
+if (!function_exists('auth')) {
+    function auth() {
+        return new class {
+            public function check() {
+                return isset($_SESSION['user_id']);
+            }
+
+            public function id() {
+                return $_SESSION['user_id'] ?? null;
+            }
+
+            public function role() {
+                return $_SESSION['user_role'] ?? 'guest';
+            }
+            
+            public function user() {
+                if (!$this->check()) return null;
+                return Users\Models\User::find($this->id());
+            }
+        };
+    }
+}

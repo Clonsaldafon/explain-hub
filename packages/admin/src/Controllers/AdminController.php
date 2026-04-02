@@ -5,6 +5,7 @@ namespace Admin\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 use Users\Models\User;
 use Questions\Models\Question;
 use Questions\Models\Answer;
@@ -87,12 +88,18 @@ class AdminController extends Controller
     {
         $user = User::findOrFail($id);
 
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:users,email,' . $id,
             'role' => 'required|in:user,editor,moderator,admin',
             'is_blocked' => 'boolean',
         ]);
+
+        if ($validator->fails()) {
+            flash('errors', $validator->errors()->toArray());
+            flash('old', $request->all());
+            return redirect()->back();
+        }
 
         $user->update($request->only(['name', 'email', 'role', 'is_blocked']));
 

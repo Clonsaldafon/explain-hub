@@ -60,6 +60,10 @@ body,
   list-style: none;
 }
 
+:where(ol[class]) {
+  list-style: none;
+}
+
 :where(address[class]) {
   font-style: normal;
 }
@@ -102,6 +106,11 @@ textarea,
 select,
 button {
   font: inherit;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 html {
@@ -154,7 +163,8 @@ label {
 /**
   Убирает серую подсветку при тапе на мобильных устройствах (iOS/Android)
  */
-button {
+button,
+details {
   border: none;
   -webkit-tap-highlight-color: transparent;
 }

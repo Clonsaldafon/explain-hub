@@ -30,4 +30,8 @@ ini_set('session.gc_probability', 1);
 session_start();
 register_shutdown_function('session_write_close');
 
+if (!isset($_SESSION['_csrf_token'])) {
+    $_SESSION['_csrf_token'] = bin2hex(random_bytes(32));
+}
+
 $app->run();

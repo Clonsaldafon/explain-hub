@@ -3,11 +3,15 @@
 /** @var \Laravel\Lumen\Routing\Router $router */
 $router = app('router');
 
-$router->get('/', ['uses' => 'Users\Controllers\AuthController@showLoginForm']);
-$router->get('/login', ['uses' => 'Users\Controllers\AuthController@showLoginForm']);
-$router->post('/login', ['uses' => 'Users\Controllers\AuthController@login']);
-$router->get('/register', ['uses' => 'Users\Controllers\AuthController@showRegisterForm']);
-$router->post('/register', ['uses' => 'Users\Controllers\AuthController@register']);
-$router->get('/logout', ['uses' => 'Users\Controllers\AuthController@logout']);
+$router->get('/login', 'Users\Controllers\AuthController@showLoginForm');
+$router->post('/login', 'Users\Controllers\AuthController@login');
+$router->get('/register', 'Users\Controllers\AuthController@showRegisterForm');
+$router->post('/register', 'Users\Controllers\AuthController@register');
 
-$router->get('/profile', ['middleware' => 'auth', 'uses' => 'Users\Controllers\ProfileController@index']);
+
+$router->group(['middleware' => 'auth'], function () use ($router) {
+    $router->get('/logout', 'Users\Controllers\AuthController@logout');
+    $router->get('/profile', 'Users\Controllers\ProfileController@index');
+    $router->put('/profile/email', 'Users\Controllers\ProfileController@updateEmail');
+    $router->put('/profile/password', 'Users\Controllers\ProfileController@updatePassword');
+});

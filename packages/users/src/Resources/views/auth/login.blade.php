@@ -9,6 +9,7 @@
       method="POST"
       action="/login"
     >
+      {!! csrf_field() !!}
       <h1 class="auth__title">Вход</h1>
       <div class="auth__field">
         <label class="auth__label" for="email-input">Email</label>
@@ -49,6 +50,14 @@
           href="/register"
         >
           Зарегистрироваться
+        </a>
+      </div>
+      <div class="auth__redirect">
+        <a
+          class="auth__redirect-link auth__redirect-link--gray"
+          href="/questions"
+        >
+          Зайти как гость
         </a>
       </div>
     </form>
