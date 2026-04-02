@@ -15,12 +15,12 @@ $router->get('/questions/{id}', 'Questions\Controllers\QuestionController@show')
 $router->group(['middleware' => 'auth'], function () use ($router) {
     $router->post('/questions', 'Questions\Controllers\QuestionController@store');
     $router->get('/questions/{id}/edit', 'Questions\Controllers\QuestionController@edit');
-    $router->post('/questions/{id}', 'Questions\Controllers\QuestionController@update');
+    $router->put('/questions/{id}', 'Questions\Controllers\QuestionController@update');
     $router->delete('/questions/{id}', 'Questions\Controllers\QuestionController@destroy');
 
     $router->post('/questions/{questionId}/answers', 'Questions\Controllers\AnswerController@store');
     $router->get('/answers/{id}/edit', 'Questions\Controllers\AnswerController@edit');
-    $router->post('/answers/{id}', 'Questions\Controllers\AnswerController@update');
+    $router->put('/answers/{id}', 'Questions\Controllers\AnswerController@update');
     $router->delete('/answers/{id}', 'Questions\Controllers\AnswerController@destroy');
     
     $router->get('/my-questions', 'Questions\Controllers\QuestionController@myQuestions');

@@ -186,6 +186,7 @@ class QuestionController extends Controller
         $question = Question::findOrFail($id);
         $content = trim($request->input('content'));
         $title = trim($request->input('title'));
+        $tagsInput = $request->input('tags');
 
         if (empty($title)) {
             $errors['title'][] = 'Title is required';
@@ -201,17 +202,29 @@ class QuestionController extends Controller
             return redirect('/questions/' . $id . '/edit');
         }
 
+        if (is_string($tagsInput)) {
+            $tags = array_map('trim', explode(', ', $tagsInput));
+            $tags = array_filter($tags);
+        } else {
+            $tags = is_array($tagsInput) ? $tagsInput : [];
+        }
+
         try {
             $question->update([
                 'title' => $title,
                 'content' => $content,
-                'tags' => $request->input('tags') ?? $question->tags,
+                'tags' => $tags,
             ]);
 
-            $tags = $request->input('tags');
-            if (!is_null($tags)) {
-                $tagIds = Tag::whereIn('name', (array)$tags->pluck('id'));
+            if (!empty($tags)) {
+                $tagIds = [];
+                foreach ($tags as $tagName) {
+                    $tag = Tag::firstOrCreate(['name' => $tagName]);
+                    $tagIds[] = $tag->id;
+                }
                 $question->tags()->sync($tagIds);
+            } else {
+                $question->tags()->sync([]);
             }
 
             flash('success', 'Question updated successfully');

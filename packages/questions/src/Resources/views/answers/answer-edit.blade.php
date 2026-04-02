@@ -27,7 +27,12 @@
           <p>{{ $answer->question->content }}</p>
         </div>
       </div>
-      <form id="answer-form" method="POST" action="{{ '/answers/' . $answer->id }}">
+      <form
+        id="answer-form"
+        method="POST"
+        action="{{ '/answers/' . $answer->id }}"
+      >
+        <input type="hidden" name="_method" value="PUT">
         {!! csrf_field() !!}
         <div class="form-group">
           <label for="answer-textarea">Содержание</label>

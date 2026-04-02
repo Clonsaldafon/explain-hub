@@ -20,7 +20,12 @@
       </div>
     </header>
     <div class="section__body">
-      <form id="question-form" method="POST" action="/questions">
+      <form
+        id="question-form"
+        method="POST"
+        action="{{ '/questions/' . $question->id }}"
+      >
+        <input type="hidden" name="_method" value="PUT">
         {!! csrf_field() !!}
         <div class="form-group">
           <label for="title">Вопрос</label>
