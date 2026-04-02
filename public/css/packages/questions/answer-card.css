@@ -1,0 +1,48 @@
+.answer-card {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  padding: 20px;
+  border: 1px solid var(--color-gray);
+  border-radius: 20px;
+  box-shadow: 0 0 5px 0 var(--color-gray);
+}
+
+.answer-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 20px;
+}
+
+.answer-card__actions {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.answer-card__metrics {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+.answer-card__metrics-likes {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.answer-card__metrics-likes svg,
+.answer-card__metrics-likes span {
+  transition-duration: var(--transition-duration);
+}
+.answer-card__metrics-likes:hover svg,
+.answer-card__metrics-likes:hover span {
+  color: var(--color-like);
+}
+
+.answer-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 20px;
+}

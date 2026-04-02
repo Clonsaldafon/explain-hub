@@ -1,0 +1,21 @@
+.answers {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+.answers__body {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.answers__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.answers__form-textarea {
+  width: 100%;
+}

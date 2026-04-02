@@ -7,6 +7,8 @@
       method="POST"
       action="/register"
     >
+      <?php echo csrf_field(); ?>
+
       <h1 class="auth__title">Регистрация</h1>
       <div class="auth__field">
         <label class="auth__label" for="name-input">Имя</label>

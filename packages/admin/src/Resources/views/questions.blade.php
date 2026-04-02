@@ -48,7 +48,7 @@
         <td><span class="status-{{ $question->status }}">{{ $question->status }}</span></td>
         <td>
           <form method="post" action="/admin/questions/{{ $question->id }}/delete" style="display:inline">
-            @csrf
+            {!! csrf_field() !!}
             <button type="submit" class="btn btn-danger">Удалить</button>
           </form>
         </td>

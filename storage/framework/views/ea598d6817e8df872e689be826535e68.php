@@ -18,8 +18,47 @@
       </div>
     </header>
     <div class="section__body">
-      "title": <?php echo e($question->title); ?>
+      <form id="question-form" method="POST" action="/questions">
+        <?php echo csrf_field(); ?>
 
+        <div class="form-group">
+          <label for="title">Вопрос</label>
+          <input
+            class="input"
+            id="title"
+            name="title"
+            type="text"
+            value="<?php echo e($question->title); ?>"
+            required
+          >
+        </div>
+        <div class="form-group">
+          <label for="content">Содержание</label>
+          <textarea
+            class="textarea"
+            id="content"
+            name="content"
+            rows="5"
+            required
+          ><?php echo e($question->content); ?></textarea>
+        </div>
+        <div class="form-group">
+          <label for="tags">Теги (через запятую)</label>
+          <input
+            class="input"
+            id="tags"
+            name="tags"
+            type="text"
+            value="<?php echo e($question->tags->pluck('name')->implode(', ')); ?>"
+            placeholder="математика, программирование"
+          >
+        </div>
+        <button class="button" type="submit">Сохранить</button>
+        <?php ($error = session('error')); ?>
+        <?php if($error): ?>
+            <div class="error"><?php echo e($error); ?></div>
+        <?php endif; ?>
+      </form>
     </div>
   </section>
 <?php $__env->stopSection(); ?>

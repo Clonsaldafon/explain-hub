@@ -18,7 +18,7 @@
   @endif
 
   <form method="post" action="/admin/users/{{ $user->id }}/update" class="admin-form">
-    @csrf
+    {!! csrf_field() !!}
     <div class="form-group">
       <label for="name">Имя</label>
       <input type="text" id="name" name="name" value="{{ $user->name }}" required>

@@ -25,20 +25,10 @@
   cursor: pointer;
   user-select: none;
 }
-.question-card__header-more {
+.question-card__header-metrics {
   display: flex;
   align-items: center;
   column-gap: 20px;
-}
-.question-card__header-more-item {
-  display: flex;
-  align-items: center;
-  column-gap: 10px;
-  color: var(--color-gray);
-}
-.question-card__header-more-icon svg path {
-  width: 24px;
-  height: 24px;
 }
 
 .question-card__title {}
@@ -80,5 +70,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  column-gap: 20px;
+}
+.question-card__footer-actions {
+  display: flex;
+  align-items: center;
   column-gap: 20px;
 }

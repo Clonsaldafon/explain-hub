@@ -30,7 +30,8 @@
               'status' => $question->status,
               'tags' => $question->tags ?? [],
               'views' => $question->views,
-              'likes' => $question->likes
+              'likes' => $question->likes,
+              'author_id' => $question->author_id
             ])
             @endcomponent
           </li>

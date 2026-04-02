@@ -76,8 +76,10 @@ $app->configure('view');
 */
 
 $app->routeMiddleware([
+    'csrf' => App\Http\Middleware\VerifyCsrfToken::class,
     'auth' => Users\Middleware\AuthMiddleware::class,
-    'role' => Users\Middleware\RoleMiddleware::class
+    'role' => Users\Middleware\RoleMiddleware::class,
+    'admin' => Admin\Middleware\AdminMiddleware::class
 ]);
 
 /*
@@ -93,6 +95,7 @@ $app->routeMiddleware([
 $app->register(Laravel\Tinker\TinkerServiceProvider::class);
 $app->register(Users\Providers\UsersServiceProvider::class);
 $app->register(Questions\Providers\QuestionsServiceProvider::class);
+$app->register(Admin\Providers\AdminServiceProvider::class);
 
 $app->register(Illuminate\View\ViewServiceProvider::class);
 

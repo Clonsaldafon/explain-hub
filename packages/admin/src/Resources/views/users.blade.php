@@ -57,12 +57,12 @@
           <a href="/admin/users/{{ $user->id }}/edit" class="btn btn-secondary">Редактировать</a>
           @if(!$user->is_blocked && !$user->isAdmin())
             <form method="post" action="/admin/users/{{ $user->id }}/ban" style="display:inline">
-              @csrf
+              {!! csrf_field() !!}
               <button type="submit" class="btn btn-danger">Блокировать</button>
             </form>
           @elseif($user->is_blocked)
             <form method="post" action="/admin/users/{{ $user->id }}/unban" style="display:inline">
-              @csrf
+              {!! csrf_field() !!}
               <button type="submit" class="btn btn-success">Разблокировать</button>
             </form>
           @endif

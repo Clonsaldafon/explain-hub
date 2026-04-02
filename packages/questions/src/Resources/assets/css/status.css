@@ -1,0 +1,22 @@
+.status {
+  padding: 4px 12px;
+  color: var(--color-dark);
+  background-color: var(--color-draft-background);
+  border: 1px solid var(--color-dark);
+  border-radius: 16px;
+}
+.status--published {
+  color: var(--color-published);
+  background-color: var(--color-published-background);
+  border-color: var(--color-published);
+}
+.status--on-moderate {
+  color: var(--color-on-moderate);
+  background-color: var(--color-on-moderate-background);
+  border-color: var(--color-on-moderate);
+}
+.status--rejected {
+  color: var(--color-rejected);
+  background-color: var(--color-rejected-background);
+  border-color: var(--color-rejected);
+}

@@ -1,0 +1,15 @@
+.metrics {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 10px;
+  color: var(--color-gray);
+}
+
+.metrics__icon {
+  display: flex;
+  align-items: center;
+}
+.metrics__icon svg path {
+  width: 24px;
+  height: 24px;
+}

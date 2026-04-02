@@ -5,9 +5,9 @@
       <div class="section__header-actions">
          <a
           class="button button--outlined"
-          href="javascript:history.back()"
+          href="/questions"
         >
-          Назад
+          Все вопросы
         </a>
         <a
           class="button button--outlined"
@@ -19,6 +19,8 @@
     </header>
     <div class="section__body">
       <form id="question-form" method="POST" action="/questions">
+        <?php echo csrf_field(); ?>
+
         <div class="form-group">
           <label for="title">Вопрос</label>
           <input
@@ -37,8 +39,7 @@
             name="content"
             rows="5"
             required
-          >
-          </textarea>
+          ></textarea>
         </div>
         <div class="form-group">
           <label for="tags">Теги (через запятую)</label>
