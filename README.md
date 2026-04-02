@@ -1,3 +1,11 @@
+# Developers
+- ПрИ-301:
+   - Безмельницин Антон ([Clonsaldafon](https://github.com/Clonsaldafon))
+   - Панов Стефан ([sozvezdiehydra](https://github.com/sozvezdiehydra))
+   - Андреев Сергей ([LofTneaD](https://github.com/LofTneaD))
+- ПрИ-302:
+   - Сакулин Андрей ([Soniccooles](https://github.com/Soniccooles))
+
 # Explain Hub
 
 Explain Hub is a Questions and Answers (Q&A) platform built on the Laravel Lumen framework. Users can register, ask questions, provide answers, and administrators can manage users, questions, and answers.

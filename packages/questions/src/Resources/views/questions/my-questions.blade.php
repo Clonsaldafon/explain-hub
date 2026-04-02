@@ -31,7 +31,8 @@
               'tags' => $question->tags ?? [],
               'views' => $question->views,
               'likes' => $question->likes,
-              'author_id' => $question->author_id
+              'author_id' => $question->author_id,
+              'liked' => $question->isLikedBy(auth()->id())
             ])
             @endcomponent
           </li>
