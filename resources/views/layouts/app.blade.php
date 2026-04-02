@@ -15,6 +15,10 @@
   <link rel="stylesheet" href="/css/packages/questions/question-card.css">
   <link rel="stylesheet" href="/css/packages/questions/tags.css">
   <link rel="stylesheet" href="/css/packages/questions/helped.css">
+  <link rel="stylesheet" href="/css/users/auth.css">
+  @if(request()->is('admin*'))
+    <link rel="stylesheet" href="/css/admin/admin.css">
+  @endif
 </head>
 <body>
   @yield("content")
