@@ -39,16 +39,6 @@ class QuestionController extends Controller
         return $user && $user->isModerator();
     }
 
-    private function checkManageGrants($id)
-    {
-        if (!auth()->check()) return false;
-
-        $user = auth()->user();
-        $question = Question::findOrFail($id);
-
-        return ($question->author_id == $user->id || $user->isAdmin());
-    }
-
     public function index(Request $request)
     {
         $authorId = $request->input('author_id');

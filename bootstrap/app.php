@@ -90,7 +90,7 @@ $app->routeMiddleware([
 | totally optional, so you are not required to uncomment this line.
 |
 */
-
+$app->register(Laravel\Tinker\TinkerServiceProvider::class);
 $app->register(Users\Providers\UsersServiceProvider::class);
 $app->register(Questions\Providers\QuestionsServiceProvider::class);
 
